@@ -34,6 +34,11 @@ class Niveau
      */
     private $classes;
 
+    public function __toString(): string
+    {
+        return (string) $this->nomNiveau;
+    }
+
     public function __construct()
     {
         $this->classes = new ArrayCollection();

@@ -1,7 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste Classes
+{% block title %}Liste Professeurs
 {% endblock %}
+
 
 {% block body %}
     <div class="all-content-wrapper">
@@ -924,24 +925,36 @@
                                                     <tbody>
 
                                                         <tr>
-                                                            <th>Nom de classe</th>
-                                                            <th>Niveau</th>
-                                                            <th>Setting</th>
-
+                                                            <th>Cin</th>
+                                                            <th>Nom</th>
+                                                            <th>Prenom</th>
+                                                            <th>Adresse</th>
+                                                            <th>Sexe</th>
+                                                            <th>Email</th>
+                                                            <th>Tele</th>
+                                                            <th>DateNaissance</th>
+                                                            <th>Password</th>
+                                                            <th>actions</th>
                                                         </tr>
-                                                        {% for classe in classes %}
+                                                        {% for prof in profs %}
 
                                                             <tr>
-                                                                <td>{{ classe.nomClasse }}</td>
-                                                                <td>{{ classe.niveau.nomNiveau }}</td>
-
+                                                                <td>{{ prof.cin }}</td>
+                                                                <td>{{ prof.nom }}</td>
+                                                                <td>{{ prof.prenom }}</td>
+                                                                <td>{{ prof.adresse }}</td>
+                                                                <td>{{ prof.sexe }}</td>
+                                                                <td>{{ prof.email }}</td>
+                                                                <td>{{ prof.tele }}</td>
+                                                                <td>{{ prof.dateNaissance ? prof.dateNaissance|date('Y-m-d') : '' }}</td>
+                                                                <td>{{ prof.password }}</td>
                                                                 <td>
                                                                     <div style="display: inline-flex;">
                                                                         <button data-toggle="tooltip" title="" class="pd-setting-ed" data-original-title="Edit">
-                                                                            <a class="fa fa-pencil-square-o" aria-hidden="true" href="{{ path('classe_edit', {'id': classe.id}) }}"></a>
+                                                                            <a class="fa fa-pencil-square-o" aria-hidden="true" href="{{ path('prof_edit', {'id': prof.id}) }}"></a>
 
                                                                         </button>
-                                                                        {{ include('classe/_delete_form.html.twig') }}
+                                                                        {{ include('prof/_delete_form.html.twig') }}
                                                                     </div>
 
                                                                 </td>
