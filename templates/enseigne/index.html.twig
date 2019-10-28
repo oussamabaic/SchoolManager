@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Proffesseur
+{% block title %}Liste Enseignes
 {% endblock %}
 
 
@@ -916,42 +916,48 @@
                             <div class="sparkline8-graph">
                                 <div class="form-group-inner input-with-warning">
 
+
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <div class="basic-login-inner">
-                                                {{ form_start(form) }}
+                                            <div class="product-status-wrap">
+                                                <h4>Classe List</h4>
+                                                <button data-toggle="tooltip" title="" class="btn btn-primary">
+                                                    <a class="fa fa-plus" aria-hidden="true" style="color:white;" href="{{ path("enseigne_new")}}">ADD Enseigne</a>
+                                                </button>
+                                                <table>
+                                                    <tbody>
 
-                                                <div class="form-select-list">
+                                                        <tr>
+                                                            <th>classes</th>
+                                                            <th>profs</th>
+                                                            <th>actions</th>
+                                                        </tr>
+                                                        {% for enseigne in enseignes %}
 
-                                                    {{ form_row(form.cin, {'attr': {'class': "form-control" }}
-                                                    )}}
-                                                    {{ form_row(form.nom, {'attr': {'class': "form-control" }}
-                                                    )}}
-                                                    {{ form_row(form.prenom, {'attr': {'class': "form-control" }}
-                                                    )}}
-                                                    {{ form_row(form.adresse, {'attr': {'class': "form-control" }}
-                                                    )}}
-                                                    {{ form_row(form.sexe, {'attr': {'class': "form-control" }}
-                                                    )}}
-                                                    {{ form_row(form.email, {'attr': {'class': "form-control" }}
-                                                    )}}
-                                                    {{ form_row(form.tele, {'attr': {'class': "form-control" }}
-                                                    )}}
-                                                    {{ form_row(form.dateNaissance, {'attr': {'class': "form-control" }}
-                                                    )}}
-                                                    {{ form_row(form.password, {'attr': {'class': "form-control" }}
-                                                    )}}
-                                                </div>
-                                                <div class="login-btn-inner">
-                                                    <div class="inline-remember-me">
-                                                        <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
-                                                    </div>
-                                                </div>
-                                                {{ form_end(form) }}
+                                                            <tr>
+                                                                <td>{{ enseigne.classes.nomClasse }}</td>
+                                                                <td>{{ enseigne.profs }}</td>
+                                                                <td>
+                                                                    <div style="display: inline-flex;">
+                                                                        <button data-toggle="tooltip" title="" class="pd-setting-ed" data-original-title="Edit">
+                                                                            <a class="fa fa-pencil-square-o" aria-hidden="true" href="{{ path('enseigne_edit', {'id': enseigne.id}) }}"></a>
 
+                                                                        </button>
+                                                                        {{ include('enseigne/_delete_form.html.twig') }}
+                                                                    </div>
+
+                                                                </td>
+                                                            </tr>
+                                                        {% else %}
+                                                            <tr>
+                                                                <td colspan="3">no records found</td>
+                                                            </tr>
+                                                        {% endfor %}
+
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"></div>
                                     </div>
 
                                 </div>

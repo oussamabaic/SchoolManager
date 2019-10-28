@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Enseigne{% endblock %}
+
+{% block body %}
+    <h1>Create new Enseigne</h1>
+
+    {{ include('enseigne/_form.html.twig') }}
+
+    <a href="{{ path('enseigne_index') }}">back to list</a>
+{% endblock %}
