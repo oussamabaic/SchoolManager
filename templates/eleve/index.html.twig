@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste Enseignes
+{% block title %}Liste des Eleves
 {% endblock %}
 
 
@@ -922,29 +922,46 @@
                                             <div class="product-status-wrap">
                                                 <h4>Classe List</h4>
                                                 <button data-toggle="tooltip" title="" class="btn btn-primary">
-                                                    <a class="fa fa-plus" aria-hidden="true" style="color:white;" href="{{ path("enseigne_new")}}">ADD Enseigne</a>
-
+                                                    <a class="fa fa-plus" aria-hidden="true" style="color:white;" href="{{ path("eleve_new")}}">Ajouter Eleve</a>
                                                 </button>
                                                 <table>
                                                     <tbody>
 
                                                         <tr>
-                                                            <th>classes</th>
-                                                            <th>profs</th>
+                                                            <th>Cin</th>
+                                                            <th>matricule</th>
+                                                            <th>Nom</th>
+                                                            <th>Prenom</th>
+                                                            <th>Sexe</th>
+                                                            <th>date Naissance</th>
+                                                            <th>lieu Naissance</th>
+                                                            <th>tele</th>
+                                                            <th>email</th>
+                                                            <th>classe</th>
+                                                            <th>parents</th>
                                                             <th>actions</th>
                                                         </tr>
-                                                        {% for enseigne in enseignes %}
+                                                        {% for eleve in eleves %}
 
                                                             <tr>
-                                                                <td>{{ enseigne.classes.nomClasse }}</td>
-                                                                <td>{{ enseigne.profs }}</td>
+                                                                <td>{{ eleve.cin }}</td>
+                                                                <td>{{ eleve.matricule }}</td>
+                                                                <td>{{ eleve.nom }}</td>
+                                                                <td>{{ eleve.prenom }}</td>
+                                                                <td>{{ eleve.sexe }}</td>
+                                                                <td>{{ eleve.dateNaissance ? eleve.dateNaissance|date('Y-m-d') : '' }}</td>
+                                                                <td>{{ eleve.lieuNaissance }}</td>
+                                                                <td>{{ eleve.tele }}</td>
+                                                                <td>{{ eleve.email }}</td>
+                                                                <td>{{ eleve.classe }}</td>
+                                                                <td>{{ eleve.parents }}</td>
                                                                 <td>
                                                                     <div style="display: inline-flex;">
                                                                         <button data-toggle="tooltip" title="" class="pd-setting-ed" data-original-title="Edit">
-                                                                            <a class="fa fa-pencil-square-o" aria-hidden="true" href="{{ path('enseigne_edit', {'id': enseigne.id}) }}"></a>
+                                                                            <a class="fa fa-pencil-square-o" aria-hidden="true" href="{{ path('eleve_edit', {'id': eleve.id}) }}"></a>
 
                                                                         </button>
-                                                                        {{ include('enseigne/_delete_form.html.twig') }}
+                                                                        {{ include('eleve/_delete_form.html.twig') }}
                                                                     </div>
 
                                                                 </td>

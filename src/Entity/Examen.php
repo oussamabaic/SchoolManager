@@ -31,6 +31,11 @@ class Examen
      */
     private $noteExamen;
 
+    public function __toString(): string
+    {
+        return (string) $this->libelle;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

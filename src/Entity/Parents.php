@@ -53,6 +53,11 @@ class Parents
      */
     private $eleves;
 
+    public function __toString(): string
+    {
+        return (string) $this->prenom . " " . $this->nom;
+    }
+
     public function __construct()
     {
         $this->eleves = new ArrayCollection();

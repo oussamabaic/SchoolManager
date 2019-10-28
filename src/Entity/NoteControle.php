@@ -39,6 +39,11 @@ class NoteControle
      */
     private $eleves;
 
+    public function __toString(): string
+    {
+        return (string) $this->note;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

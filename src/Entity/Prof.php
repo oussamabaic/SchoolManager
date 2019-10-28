@@ -68,6 +68,11 @@ class Prof
      */
     private $enseignes;
 
+    public function __toString(): string
+    {
+        return (string) $this->prenom . " " . $this->nom;
+    }
+
     public function __construct()
     {
         $this->enseignes = new ArrayCollection();

@@ -39,6 +39,11 @@ class Classe
      */
     private $niveau;
 
+    public function __toString(): string
+    {
+        return (string) $this->nomClasse;
+    }
+
     public function __construct()
     {
         $this->eleves = new ArrayCollection();
