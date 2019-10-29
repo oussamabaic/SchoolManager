@@ -1,0 +1,7 @@
+<form method="post" action="{{ path('parents_delete', {'id': parent.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ parent.id) }}">
+    <button data-toggle="tooltip" title="" class="pd-setting-ed" data-original-title="Trash">
+        <a class="fa fa-trash-o" aria-hidden="true" href=""></a>
+    </button>
+</form>

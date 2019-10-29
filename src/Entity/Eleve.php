@@ -85,6 +85,11 @@ class Eleve
      */
     private $noteExamens;
 
+    public function __toString()
+    {
+        return (string) $this->prenom;
+    }
+
     public function __construct()
     {
         $this->noteControles = new ArrayCollection();
