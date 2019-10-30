@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste Classes
+{% block title %}Liste Matiere
 {% endblock %}
 
 {% block body %}
@@ -909,9 +909,10 @@
 
         <div class="container-fluid">
             <div class="row" align="center">
-                <img src="{{ asset('img/logo/classe.png') }}" style="width: 30%;"/>
+                <img src="{{ asset('img/logo/matiers.png') }}" style="width: 50%;"/>
             </div>
         </div>
+
         <!-- Basic Form Start -->
         <div class="basic-form-area mg-tb-15">
             <div class="container-fluid">
@@ -925,29 +926,32 @@
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                             <div class="product-status-wrap">
-                                                <h4>Classe List</h4>
+                                                <h4>Liste des Matiere</h4>
+                                                <button data-toggle="tooltip" title="" class="btn btn-primary">
+                                                    <a class="fa fa-plus" aria-hidden="true" style="color:white;" href="{{ path("matiere_new")}}">Ajouter Matiere</a>
+                                                </button>
                                                 <table>
                                                     <tbody>
 
                                                         <tr>
-                                                            <th>Nom de classe</th>
-                                                            <th>Niveau</th>
+                                                            <th>Nom Matiere</th>
+                                                            <th>Coefficient</th>
                                                             <th>Setting</th>
 
                                                         </tr>
-                                                        {% for classe in classes %}
+                                                        {% for matiere in matieres %}
 
                                                             <tr>
-                                                                <td>{{ classe.nomClasse }}</td>
-                                                                <td>{{ classe.niveau.nomNiveau }}</td>
+                                                                <td>{{ matiere.nomMatiere }}</td>
+                                                                <td>{{ matiere.coef }}</td>
 
                                                                 <td>
                                                                     <div style="display: inline-flex;">
                                                                         <button data-toggle="tooltip" title="" class="pd-setting-ed" data-original-title="Edit">
-                                                                            <a class="fa fa-pencil-square-o" aria-hidden="true" href="{{ path('classe_edit', {'id': classe.id}) }}"></a>
+                                                                            <a class="fa fa-pencil-square-o" aria-hidden="true" href="{{ path('matiere_edit', {'id': matiere.id}) }}"></a>
 
                                                                         </button>
-                                                                        {{ include('classe/_delete_form.html.twig') }}
+                                                                        {{ include('matiere/_delete_form.html.twig') }}
                                                                     </div>
 
                                                                 </td>
