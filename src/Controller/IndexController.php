@@ -2,18 +2,27 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+use App\Repository\ProfRepository;
+use App\Repository\EleveRepository;
+use App\Repository\ClasseRepository;
+use App\Repository\ParentsRepository;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class IndexController extends AbstractController
 {
     /**
      * @Route("/", name="index")
      */
-    public function index()
+    public function index(ClasseRepository $classe, ProfRepository $prof, EleveRepository $eleve, ParentsRepository $parents)
     {
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
+            'classe' => $classe->findAll(),
+            'prof' => $prof->findAll(),
+            'eleve' => $eleve->findAll(),
+            'parents' => $parents->findAll()
         ]);
     }
 }
