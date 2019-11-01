@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NoteExamen{% endblock %}
+
+{% block body %}
+    <h1>NoteExamen</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ note_examan.id }}</td>
+            </tr>
+            <tr>
+                <th>Note</th>
+                <td>{{ note_examan.note }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('note_examen_index') }}">back to list</a>
+
+    <a href="{{ path('note_examen_edit', {'id': note_examan.id}) }}">edit</a>
+
+    {{ include('note_examen/_delete_form.html.twig') }}
+{% endblock %}

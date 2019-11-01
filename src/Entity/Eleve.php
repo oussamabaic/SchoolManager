@@ -87,7 +87,7 @@ class Eleve
 
     public function __toString()
     {
-        return (string) $this->prenom;
+        return (string) $this->prenom . " " . $this->nom;
     }
 
     public function __construct()

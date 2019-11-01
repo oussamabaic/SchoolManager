@@ -38,6 +38,11 @@ class Matiere
      */
     private $noteControles;
 
+    public function __toString(): string
+    {
+        return (string) $this->nomMatiere;
+    }
+
     public function __construct()
     {
         $this->noteExamens = new ArrayCollection();
