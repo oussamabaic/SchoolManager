@@ -4,11 +4,12 @@ namespace App\Controller;
 
 use App\Entity\Classe;
 use App\Form\ClasseType;
+use App\Repository\EleveRepository;
 use App\Repository\ClasseRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/classe")
@@ -51,10 +52,11 @@ class ClasseController extends AbstractController
     /**
      * @Route("/{id}", name="classe_show", methods={"GET"})
      */
-    public function show(Classe $classe): Response
+    public function show(Classe $classe, EleveRepository $eleveRepository): Response
     {
         return $this->render('classe/show.html.twig', [
             'classe' => $classe,
+            'eleves' => $eleveRepository->findAll(),
         ]);
     }
 
@@ -83,7 +85,7 @@ class ClasseController extends AbstractController
      */
     public function delete(Request $request, Classe $classe): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$classe->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $classe->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($classe);
             $entityManager->flush();
