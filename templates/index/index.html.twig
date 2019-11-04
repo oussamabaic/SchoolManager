@@ -3,6 +3,17 @@
 {% block body %}
 
     <style>
+        .filter {
+            width: 98%;
+            background-color: black;
+            color: wheat;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 16px;
+            font-size: 20px;
+            height: auto;
+            font-family: monospace;
+        }
         .btn-edo {
             width: 229px;
             height: 150px;
@@ -1121,11 +1132,22 @@
         <div class="product-sales-area mg-tb-30">
             <div class="container-fluid">
                 <div class="row">
+                    <div class="filterClasse">
+                        <select class="form-control filter">
+                            <option>Filter By Niveau</option>
+                            {% for niveaux in niveau %}
+                                <option name="select" value="{{ niveaux.id }}">{{ niveaux.nomNiveau }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <br>
                     <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
                         {% for classes in classe %}
-                            <a href="{{ path('classe_show', {'id': classes.id}) }}" class="btn btn-success btn-edo">{{ classes.nomClasse }}<br>
-                                <p style="color:black;">{{ classes.niveau.nomNiveau }}</p>
-                            </a>
+                            {% if classes.niveau.id == 1 %}
+                                <a href="{{ path('classe_show', {'id': classes.id}) }}" class="btn btn-success btn-edo">{{ classes.nomClasse }}<br>
+                                    <p style="color:black;">{{ classes.niveau.nomNiveau }}</p>
+                                </a>
+                            {% endif %}
                         {% endfor %}
                     </table>
                 </div>
@@ -1191,7 +1213,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <div class="white-box">
-                        <h3 class="box-title">Browser Status</h3>
+                        <h3 class="box-title">Historique</h3>
                         <ul class="basic-list">
                             <li>Google Chrome
                                 <span class="pull-right label-danger label-1 label">95.8%</span>
