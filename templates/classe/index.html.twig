@@ -932,6 +932,7 @@
                                                         <tr>
                                                             <th>Nom de classe</th>
                                                             <th>Niveau</th>
+                                                            <th>Cycle</th>
                                                             <th>Setting</th>
 
                                                         </tr>
@@ -940,12 +941,15 @@
                                                             <tr>
                                                                 <td>{{ classe.nomClasse }}</td>
                                                                 <td>{{ classe.niveau.nomNiveau }}</td>
+                                                                <td>{{ classe.niveau.cycles.nomCycle }}</td>
 
                                                                 <td>
                                                                     <div style="display: inline-flex;">
                                                                         <button data-toggle="tooltip" title="" class="pd-setting-ed" data-original-title="Edit">
                                                                             <a class="fa fa-pencil-square-o" aria-hidden="true" href="{{ path('classe_edit', {'id': classe.id}) }}"></a>
-
+                                                                        </button>
+                                                                        <button data-toggle="tooltip" title="" class="pd-setting-ed" data-original-title="Edit">
+                                                                            <a class="fa fa-eye" aria-hidden="true" href="{{ path('classe_show', {'id': classe.id}) }}"></a>
                                                                         </button>
                                                                         {{ include('classe/_delete_form.html.twig') }}
                                                                     </div>

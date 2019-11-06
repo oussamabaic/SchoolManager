@@ -955,7 +955,9 @@
                                                                     <div style="display: inline-flex;">
                                                                         <button data-toggle="tooltip" title="" class="pd-setting-ed" data-original-title="Edit">
                                                                             <a class="fa fa-pencil-square-o" aria-hidden="true" href="{{ path('prof_edit', {'id': prof.id}) }}"></a>
-
+                                                                        </button>
+                                                                        <button data-toggle="tooltip" title="" class="pd-setting-ed" data-original-title="Edit">
+                                                                            <a class="fa fa-eye" aria-hidden="true" href="{{ path('prof_show', {'id': prof.id}) }}"></a>
                                                                         </button>
                                                                         {{ include('prof/_delete_form.html.twig') }}
                                                                     </div>
